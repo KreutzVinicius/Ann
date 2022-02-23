@@ -1,10 +1,21 @@
 # metodo das diferencas divididas (de Newton)
 from matplotlib import pyplot as plt
 import numpy as np
+import math
+
 
 # (x1,y1), (x2, y2), (x3,y3)....
-x = [1, 2, 3, 4]
-y = [2, 5, 1, 3]
+
+def f(x):
+    return math.sin(math.sqrt(math.pi + x**2))
+
+
+x = [-1.1072249, -0.6143009, 1.2209542, 1.7761517,
+     3.254209, 4.4279365, 5.2059382, 5.983795]
+y = [0 for i in range(len(x))]
+
+for i in range(len(x)):
+    y[i] = f(x[i])
 
 
 def divided_differences(x, y):
@@ -38,13 +49,11 @@ print(coeffs)
 poly = eq(x, coeffs)
 print('p(x) = ', poly)
 
-t = np.linspace(min(x), max(x), 100)
-
 
 def p(x):
     return eval(poly)
 
 
-plt.plot(t, p(t))
-plt.scatter(x, y, zorder=10)
-plt.savefig("diff_div.png")
+# plt.plot(t, p(t))
+# plt.scatter(x, y, zorder=10)
+# plt.savefig("diff_div.png")

@@ -12,12 +12,14 @@ def trapz(f, a, b, n):
 
 
 def f(x):
-    return math.cos(x**2)
+    return math.exp(1)**-x**2
 
 
-a = 0
-b = math.pi/2
-n = 1000
+a = 0.051
+b = 4.843
+n = 21
+
 
 r = trapz(f, a, b, n)
+
 print(r)

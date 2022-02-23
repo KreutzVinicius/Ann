@@ -14,34 +14,18 @@ def richardson(col1):
     return col1[0]
 
 
-def F1(f, x0, h):
-    return (f(x0+h)-f(x0))/h
+# def F1(f, x0, h):
+    # return (f(x0+h)-f(x0))/h
 
 
-def f(x):
-    return x ** x
+# def f(x):
+    # return math.cos(math.exp(1)**-x**2)+math.sin((x**2)/2)
 
 
-x0 = 2
-h = 0.5
-col1 = [F1(f, x0, h/2 ** i) for i in range(4)]
-
-
-# col1 = [11.764235376052373, 8.801083645679679, 7.694261146080478, 7.212711027043781]
+x0 = 1.37601
+# h = 1
+col1 = [-0.09022436887893881, -0.10833062200062216, -
+        0.11267802255173365, -0.11375150707090143]
 print(col1)
 
 r = richardson(col1)
-
-
-def F2(f, x0, h):
-    return (f(x0)-f(x0-h))/h
-
-
-def g(x):
-    return math.cos(2**x)
-
-
-x0 = 1
-h = 0.5
-# col1 = [F2(f, x0, h/2 ** i) for i in range(4)]
-# r = richardson(col1)

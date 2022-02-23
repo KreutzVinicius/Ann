@@ -26,12 +26,13 @@ def double_trapz(f, a: float, b: float, c: float, d: float, n1: int, n2: int) ->
 
 
 def f(x, y):
-    return math.exp(-x ** 2 - y ** 2)
+    return math.sqrt(math.pow(math.exp(1), math.pow(-x, 2)*math.pow(y, 2)) + 1)
 
 
-a, b = [1, 2]
-c, d = [-1, 0]
-n1, n2 = 10, 20
+a, b = [-1.301, 1.484]
+c, d = [-1.064, 1.431]
+n1 = 10
+n2 = 21
 
 r = double_trapz(f, a, b, c, d, n1, n2)
 print(r)

@@ -1,5 +1,6 @@
 # spline cubico natural
 import numpy as np
+import math
 from matplotlib import pyplot as plt
 # (x1,y1), (x2, y2), (x3,y3)....
 
@@ -40,19 +41,32 @@ def spline(x, y):
     return s
 
 
-x = [-2, -1.5, -0.8, 1, 2, 4, 5]
-y = [-1, 2, 3, 1, 4, 2, 3]
+def f(x):
+    return math.cos(x)**3 + 2*(math.cos(x)**2)+1
+
+
+x = [0.277, 0.448, 0.802, 0.94, 1.246, 1.441,
+     1.657, 1.732, 1.993, 2.222, 2.513, 2.663, 2.857]
+y = [1.856, 1.522, 1.397, 1.885, 1.469, 1.544,
+     1.146, 0.951, 0.741, 0.713, 1.122, 0.986, 1.191]
+
+
+# y = [0 for i in range(len(x))]
+
+# for i in range(len(x)):
+#     y[i] = f(x[i])
 
 eqs = spline(x, y)
 print(eqs)
 
-for key, value, in eqs.items():
-    def p(x):
-        return eval(value['eq'])
-    t = np.linspace(*value['domain'], 100)
-    plt.plot(t, p(t), label=f'$S_{key}(x)$')
+
+# for key, value, in eqs.items():
+#     def p(x):
+#         return eval(value['eq'])
+#     t = np.linspace(*value['domain'], 100)
+#     plt.plot(t, p(t), label=f'$S_{key}(x)$')
 
 
-plt.scatter(x, y)
-plt.legend()
-plt.savefig('spline.png')
+# plt.scatter(x, y)
+# plt.legend()
+# plt.savefig('spline.png')
